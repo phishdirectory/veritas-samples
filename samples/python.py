@@ -195,10 +195,16 @@ class VeritasClient:
 
 
 if __name__ == "__main__":
-    # Replace these with your actual API credentials
-    API_URL = "https://veritas.phish.directory"
-    API_KEY = "your_api_key_here"
-    HASH_KEY = "your_hash_key_here"
+    # Development URL (change to production URL in production environment)
+    # Development: http://localhost:3000/api/v1/
+    # Production: https://veritas.phish.directory/api/v1/
+    # Note: Contact a core team member if you need production keys for authenticating with Veritas
+    import os
+    
+    is_production = os.environ.get("ENVIRONMENT") == "production"
+    API_URL = "https://veritas.phish.directory" if is_production else "http://localhost:3000"
+    API_KEY = "your_api_key_here"  # Obtain from core team member for production
+    HASH_KEY = "your_hash_key_here"  # Obtain from core team member for production
 
     client = VeritasClient(API_URL, API_KEY, HASH_KEY)
 
