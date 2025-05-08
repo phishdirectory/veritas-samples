@@ -186,10 +186,14 @@ export interface CreateUserResponse {
 
 // Example usage
 async function exampleUsage() {
-  // Replace these with your actual API credentials
-  const API_URL = 'https://auth.phish.directory';
-  const API_KEY = 'your_api_key_here';
-  const HASH_KEY = 'your_hash_key_here';
+  // Development URL (change to production URL in production environment)
+  // Development: http://localhost:3000/api/v1/
+  // Production: https://veritas.phish.directory/api/v1/
+  // Note: Contact a core team member if you need production keys for authenticating with Veritas
+  const isProduction = process.env.NODE_ENV === 'production';
+  const API_URL = isProduction ? 'https://veritas.phish.directory' : 'http://localhost:3000';
+  const API_KEY = 'your_api_key_here'; // Obtain from core team member for production
+  const HASH_KEY = 'your_hash_key_here'; // Obtain from core team member for production
 
   const client = new VeritasClient(API_URL, API_KEY, HASH_KEY);
 
