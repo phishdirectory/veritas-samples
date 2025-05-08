@@ -1,4 +1,6 @@
-#!/usr/bin/env ruby
+# Also see https://github.com/phishdirectory/atrium for working codebase w/ veritas auth on rails.
+# Specific commits with implementation are https://github.com/phishdirectory/atrium/commit/e59d8d2216a244a7d20e6f4ca872f855030bcb06 and https://github.com/phishdirectory/atrium/commit/737efe0373d95532da70be20d3f13fc92cd8422c
+
 # frozen_string_literal: true
 
 require 'net/http'
