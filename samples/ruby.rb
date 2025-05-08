@@ -21,6 +21,9 @@ class VeritasClient
     @api_url = api_url.chomp('/')
     @api_key = api_key
     @hash_key = hash_key
+    
+    puts "Initializing VeritasClient with API URL: #{@api_url}"
+    puts "Note: For production usage, contact a core team member for API credentials."
   end
 
   # Authenticate a user with email and password
@@ -131,10 +134,13 @@ end
 
 # Example usage
 if __FILE__ == $PROGRAM_NAME
-  # Replace these with your actual API credentials
-  API_URL = 'https://auth.phish.directory'
-  API_KEY = 'your_api_key_here'
-  HASH_KEY = 'your_hash_key_here'
+  # Development URL (change to production URL in production environment)
+  # Development: http://localhost:3000/api/v1/
+  # Production: https://veritas.phish.directory/api/v1/
+  # Note: Contact a core team member if you need production keys for authenticating with Veritas
+  API_URL = ENV['RAILS_ENV'] == 'production' ? 'https://veritas.phish.directory' : 'http://localhost:3000'
+  API_KEY = 'your_api_key_here' # Obtain from core team member for production
+  HASH_KEY = 'your_hash_key_here' # Obtain from core team member for production
 
   client = VeritasClient.new(API_URL, API_KEY, HASH_KEY)
 
